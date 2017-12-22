@@ -46,7 +46,7 @@ else
     fi
 
     echo "- $match; $(date)" | to_todo_history_file
-    sed -i "${line_number}d" $TODOFILE
+    sed -i '.bak' "${line_number}d" $TODOFILE
 
     show_todo
 fi

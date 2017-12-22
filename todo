@@ -36,6 +36,7 @@ else
             echo "$*" >> "$TODOFILE"
             echo "+ $*; $(date)" | to_todo_history_file
             show_todo
+            git_integration Added \'$@\' to list
         fi
     fi
 fi

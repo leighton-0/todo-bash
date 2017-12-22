@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "$TODOFILE" ]
+then
+    echo_in_red "environment variable TODOFILE not set"
+    exit 1
+elif [ "$TODOROOT" == "" ]
+then
+    echo_in_red "environment variable TODOROOT not set"
+    exit 1
+else
+    echo $TODOROOT
+    cd $TODOROOT
+    echo "adding"
+    git add .
+    echo "committing"
+    git commit -m "$@"
+    cd -
+fi
