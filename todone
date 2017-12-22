@@ -47,6 +47,12 @@ else
 
     echo "- $match; $(date)" | to_todo_history_file
     sed -i '.bak' "${line_number}d" $TODOFILE
-
     show_todo
+    #####################
+    ## Git integration ##
+    #####################
+    if [ -f "internals/git_integration" ]
+    then
+        git_integration "Completed task: $*"
+    fi
 fi

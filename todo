@@ -36,7 +36,13 @@ else
             echo "$*" >> "$TODOFILE"
             echo "+ $*; $(date)" | to_todo_history_file
             show_todo
-            git_integration Added \'$@\' to list
+            #####################
+            ## Git integration ##
+            #####################
+            if [ -f "internals/git_integration" ]
+            then
+                git_integration "Added $* to list"
+            fi
         fi
     fi
 fi

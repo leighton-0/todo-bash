@@ -9,11 +9,11 @@ then
     echo_in_red "environment variable TODOROOT not set"
     exit 1
 else
-    echo $TODOROOT
     cd $TODOROOT
     echo "adding"
-    git add .
+    git add $TODOFILE
     echo "committing"
-    git commit -m "$@"
+    echo "git commit -m \"$*\""
+    git commit -m "$*"
     cd -
 fi
