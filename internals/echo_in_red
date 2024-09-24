@@ -1,5 +1,5 @@
 #!/bin/bash
 
 echo -en "\033[1;31m"
-echo "$@"
+echo "$@"    # $@ is all of the parameters passed to the script.
 echo -en "\033[m"
