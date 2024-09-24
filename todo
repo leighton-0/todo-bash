@@ -1,12 +1,20 @@
 #!/bin/bash -e
 
 codedir="$( cd "$( dirname $( readlink "${BASH_SOURCE[0]}" ) )" && pwd )"
+# creates a variable codedir
+# that command gets the script's source file pathname, strips it to just the path portion,
+#cds to that path, then uses pwd to return the (effectively) full path of the script. 
+#This is assigned to CODEDIR. After all of that, the context is unwound so you end up back 
+in the directory you started at but with an environment variable DIR containing the script's path.
 PATH="$codedir/internals/:$PATH"
+    
 
 usage()
 {
 command=${0##*/}
-cat <<EOF
+# ${var%/*} - remove everything after the last occurrence of /.
+# ${var##*/} - remove everything up to the last occurrence of /.
+cat <<EOF                            # here doc
 usage: $command [a] [task] [name]
 Examples:
     $command
@@ -14,17 +22,20 @@ Examples:
 EOF
 }
 
-if [[ -z "$TODOFILE" ]]
+if [[ -z "$TODOFILE" ]]    # if the $TODOFILE is empty (not existing) then
 then
     echo_in_red "environment variable TODOFILE must be set"
     exit 1
 elif [[ $# -eq 1 && ( "$1" = '-h' || "$1" = '--help' ) ]]
+# $# is a special variable - expands to the number of arguments (positional parameters)
+# check to see if "help" is being called
 then
     usage
     exit 0
 else
     touch "$TODOFILE"
     if [[ $# -eq 0 ]]
+# if "t" is entered on its own then lists the complete todo list 
     then
         show_todo
     else
