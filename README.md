@@ -56,10 +56,11 @@ couple optional variables. You might add something like this to your `.bashrc`
 or `.zshrc`:
 
 ```bash
-export TODOFILE=~/Dropbox/todo/todo
-export TODOHISTORY=~/Dropbox/todo/todo-history
+export TODOFILE=~/mycode/repos/My_Random_Scrips/todo/todo
+export TODOHISTORY=~/mycode/repos/My_Random_Scrips/todo/todo-history
 alias t=todo
 alias d=todone
+# need to updat PATH
 ```
 
 or this to your `config.fish`:
