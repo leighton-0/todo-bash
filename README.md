@@ -61,6 +61,8 @@ export TODOHISTORY=~/mycode/repos/My_Random_Scrips/todo/todo-history
 alias t=todo
 alias d=todone
 # need to updat PATH
+   # /root/bin/todo
+   # /root/bin/todo/internals
 ```
 
 or this to your `config.fish`:
