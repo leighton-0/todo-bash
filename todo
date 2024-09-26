@@ -5,13 +5,14 @@ codedir="$( cd "$( dirname $( readlink "${BASH_SOURCE[0]}" ) )" && pwd )"
 # that command gets the script's source file pathname, strips it to just the path portion,
 #cds to that path, then uses pwd to return the (effectively) full path of the script. 
 #This is assigned to CODEDIR. After all of that, the context is unwound so you end up back 
-in the directory you started at but with an environment variable DIR containing the script's path.
+in the directory you started at but with an environment variable codedir containing the script's path.
 PATH="$codedir/internals/:$PATH"
     
 
 usage()
 {
 command=${0##*/}
+# $0 fererd to the name of the script
 # ${var%/*} - remove everything after the last occurrence of /.
 # ${var##*/} - remove everything up to the last occurrence of /.
 cat <<EOF                            # here doc
